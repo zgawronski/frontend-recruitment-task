@@ -1,0 +1,45 @@
+.hero {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6em;
+  margin-left: auto;
+  margin-right: auto;
+  .container {
+    @include breakpoint-up(large) {
+      display: flex;
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 31.563em;
+    height: 20.625em;
+    background-image: url('../images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1400.jpg');
+    background-size: cover;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    width: 23.75em;
+    height: 15.625em;
+    margin-left: 3.1875em;
+    h1 {
+      font-size: $font-xlg;
+    }
+    span {
+      font-size: $font-med;
+    }
+    button {
+      width: 8em;
+      padding: 1em 2.5em 1em 2.5em;
+      margin-top: 3.1875em;
+      border-radius: 2em;
+      border: none;
+      background-color: $brown;
+      color: $white;
+    }
+  }
+}
