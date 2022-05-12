@@ -1,0 +1,1 @@
+const alertButton=document.querySelector("#alertButton"),alertPopup=document.querySelector("#alertPopup");alertButton.addEventListener("click",function(){"function"==typeof alertPopup.showModal&&alertPopup.showModal()});

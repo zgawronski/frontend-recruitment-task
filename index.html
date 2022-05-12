@@ -12,11 +12,11 @@
     <section class="hero">
       <div class="container">
         <picture class="hero__image">
-        <source
+          <source
           media="(orientation: landscape)"
           srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_784.jpg 505w, images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1002.jpg 505w"
           sizes="(min-width: 64em) 50vw, (min-width: 40em) 60vw">
-        <img src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1400.jpg" alt="oops!">
+          <img src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1400.jpg" alt="oops!">
 
         </picture>
         <div class="hero__text">
@@ -28,15 +28,13 @@
           <button id="alertButton">Button</button>
         </div>
       </picture>
+      <dialog class="alertPopup" id="alertPopup">
+          <h2>Alert!</h2>
+          <span>You have clicked X times to related button.</span>
+      </dialog>
     </section>
 
-    <section class="alertPopup">
-      <div class="hero__text">
-        <h2>Alert!</h2>
-        <span>You have clicked X times to related button.</span>
-      </div>
-    </section>
 
-    <script type="text/javascript" src="dist/all.js" />
+    <script type="text/javascript" src="dist/all.js"></script>
   </body>
-</html>
+  </html>
