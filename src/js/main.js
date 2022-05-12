@@ -1,11 +1,14 @@
 const alertButton = document.querySelector('#alertButton');
 const alertPopup = document.querySelector('#alertPopup');
 
-// function to open popup
+// function to open popup and count clicks
 alertButton.addEventListener('click', () => {
   if (typeof alertPopup.showModal === 'function') {
     alertPopup.showModal();
   }
+  const currentCount = localStorage.getItem('myClicks') ? parseInt(localStorage.getItem('myClicks')) : 0;
+  const newValue = currentCount + 1;
+  localStorage.setItem('myClicks', newValue);
 });
 
 // function to close popup
@@ -17,3 +20,5 @@ alertPopup.addEventListener('click', (event) => {
     alertPopup.close();
   }
 });
+
+// click counter
