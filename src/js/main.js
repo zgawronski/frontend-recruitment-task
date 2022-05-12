@@ -6,3 +6,12 @@ alertButton.addEventListener('click', function onOpen() {
     alertPopup.showModal();
   }
 });
+
+alertPopup.addEventListener('click', function (event) {
+  const rect = alertPopup.getBoundingClientRect();
+  const isInPopup =
+    rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width;
+  if (!isInPopup) {
+    alertPopup.close();
+  }
+});
