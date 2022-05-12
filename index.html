@@ -11,16 +11,32 @@
   <body>
     <section class="hero">
       <div class="container">
-        <div class="hero__image"></div>
+        <picture class="hero__image">
+        <source
+          media="(orientation: landscape)"
+          srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_784.jpg 505w, images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1002.jpg 505w"
+          sizes="(min-width: 64em) 50vw, (min-width: 40em) 60vw">
+        <img src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1400.jpg" alt="oops!">
+
+        </picture>
         <div class="hero__text">
           <h1>Lorem Ipsum</h1>
           <span>
             infinitely scalable features and cloud-native data management and protection for modern and legacy infrastructures and SaaS platformms,
             managed via a single app with no hardware required
           </span>
-          <button>Button</button>
+          <button id="alertButton">Button</button>
         </div>
+      </picture>
+    </section>
+
+    <section class="alertPopup">
+      <div class="hero__text">
+        <h2>Alert!</h2>
+        <span>You have clicked X times to related button.</span>
       </div>
     </section>
+
+    <script type="text/javascript" src="dist/all.js" />
   </body>
 </html>
