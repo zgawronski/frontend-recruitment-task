@@ -22,5 +22,3 @@ alertPopup.addEventListener('click', (event) => {
     alertPopup.close();
   }
 });
-
-// click counter
