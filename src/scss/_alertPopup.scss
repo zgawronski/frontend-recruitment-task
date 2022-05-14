@@ -1,6 +1,26 @@
 .alertPopup {
+  position: relative;
   width: 57.5em;
   height: 13.125em;
   border: none;
   padding: 3.125em;
+}
+
+.closeButton {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 3.125em;
+  right: 3.125em;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.resetButton {
+  position: absolute;
+  left: 3.125em;
+  bottom: 3.125em;
+  border: none;
+  padding: 0.5em;
 }

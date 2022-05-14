@@ -6,6 +6,11 @@
   margin-top: 6em;
   margin-left: auto;
   margin-right: auto;
+
+  img {
+    max-width: 31.563em;
+    max-height: 20.625em;
+  }
   .container {
     @include breakpoint-up(large) {
       display: flex;

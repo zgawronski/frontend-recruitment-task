@@ -10,7 +10,7 @@ alertButton.addEventListener('click', () => {
   const currentCount = localStorage.getItem('myClicks') ? parseInt(localStorage.getItem('myClicks')) : 0;
   const newValue = currentCount + 1;
   localStorage.setItem('myClicks', newValue);
-  alertText.innerHTML = 'You have clicked ' + newValue + ' times to related button.';
+  alertText.innerHTML = 'You have clicked <b>' + newValue + ' times</b> to related button.';
 });
 
 // function to close popup
@@ -22,3 +22,14 @@ alertPopup.addEventListener('click', (event) => {
     alertPopup.close();
   }
 });
+
+const checkNumber = localStorage.getItem('myClicks');
+if (checkNumber >= 5) {
+  const resetButton = document.createElement('button');
+  resetButton.innerText = 'Reset';
+  resetButton.classList.add('resetButton');
+  resetButton.onclick = () => {
+    localStorage.clear();
+  };
+  alertPopup.appendChild(resetButton);
+}
