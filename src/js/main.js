@@ -48,9 +48,7 @@ closeButton.onclick = () => {
 
 const tableApi = fetch('https://jsonplaceholder.typicode.com/users')
   .then((response) => response.json())
-  .then((data) => JSON.stringify(data))
+  .then((data) => console.log(data))
   .catch((error) => {
     console.error('Error:', error);
   });
-
-console.log(tableApi);
