@@ -1,6 +1,8 @@
 const alertButton = document.querySelector('#alertButton');
-const alertPopup = document.querySelector('#alertPopup');
+const alertPopup = document.querySelector('.alertPopup');
 const alertText = document.querySelector('#alertText');
+const closeButton = document.querySelector('.closeButton');
+const resetButton = document.querySelector('.resetButton');
 
 // function to open popup and count clicks
 alertButton.addEventListener('click', () => {
@@ -11,7 +13,18 @@ alertButton.addEventListener('click', () => {
   const newValue = currentCount + 1;
   localStorage.setItem('myClicks', newValue);
   alertText.innerHTML = 'You have clicked <b>' + newValue + ' times</b> to related button.';
+  newValue >= 5 ? countReset(newValue) : null;
 });
+
+// reset button
+const countReset = () => {
+  resetButton.style.display = 'block';
+  resetButton.onclick = () => {
+    localStorage.setItem('myClicks', 0);
+    alertText.innerHTML = 'You have clicked <b>' + 0 + ' times</b> to related button.';
+    resetButton.style.display = 'none';
+  };
+};
 
 // function to close popup
 alertPopup.addEventListener('click', (event) => {
@@ -23,13 +36,12 @@ alertPopup.addEventListener('click', (event) => {
   }
 });
 
-const checkNumber = localStorage.getItem('myClicks');
-if (checkNumber >= 5) {
-  const resetButton = document.createElement('button');
-  resetButton.innerText = 'Reset';
-  resetButton.classList.add('resetButton');
-  resetButton.onclick = () => {
-    localStorage.clear();
-  };
-  alertPopup.appendChild(resetButton);
-}
+// window.onclick = (ev) => {
+//   if (ev.target == alertPopup) {
+//     alertPopup.close();
+//   }
+// };
+
+closeButton.onclick = () => {
+  alertPopup.close();
+};
