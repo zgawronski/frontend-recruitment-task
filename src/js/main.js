@@ -45,3 +45,11 @@ alertPopup.addEventListener('click', (event) => {
 closeButton.onclick = () => {
   alertPopup.close();
 };
+
+
+const tableApi = fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json()).then(data=>data).catch((error) => {
+  console.error('Error:', error);
+})
+
+console.log(tableApi)
+
