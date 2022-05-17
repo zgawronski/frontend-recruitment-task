@@ -1,0 +1,16 @@
+.testTable {
+  margin-top: 2em;
+  border-collapse: collapse;
+  text-align: center;
+  th,
+  td {
+    border: solid $blue;
+    color: $blue;
+  }
+  td {
+    background-color: $lightBrown;
+  }
+  th {
+    background-color: $brown;
+  }
+}
