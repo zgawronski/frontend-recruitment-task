@@ -71,11 +71,11 @@ const getData = async () => {
       let cell3 = document.createElement('td');
       let cell4 = document.createElement('td');
       cellLP.appendChild(document.createTextNode(index + 1));
-      cell.appendChild(document.createTextNode(obj?.name));
-      cell1.appendChild(document.createTextNode(obj?.email));
-      cell2.appendChild(document.createTextNode(obj?.address.city + ', ' + obj?.address.street + ', ' + obj?.address.suite));
-      cell3.appendChild(document.createTextNode(obj?.phone));
-      cell4.appendChild(document.createTextNode(obj?.company.name));
+      cell.appendChild(document.createTextNode(obj.name));
+      cell1.appendChild(document.createTextNode(obj.email));
+      cell2.appendChild(document.createTextNode(obj.address.city + ', ' + obj.address.street + ', ' + obj.address.suite));
+      cell3.appendChild(document.createTextNode(obj.phone));
+      cell4.appendChild(document.createTextNode(obj.company.name));
       bodyTable.appendChild(row);
       row.appendChild(cellLP);
       row.appendChild(cell);
