@@ -17,7 +17,7 @@ alertButton.addEventListener('click', () => {
   const currentCount = localStorage.getItem('myClicks') ? parseInt(localStorage.getItem('myClicks')) : 0;
   const newValue = currentCount + 1;
   localStorage.setItem('myClicks', newValue);
-  alertText.innerHTML = 'You have clicked <b>' + newValue + ' times</b> to related button.';
+  alertText.innerHTML = 'You have clicked <strong>' + newValue + ' times</strong> to related button.';
   newValue >= 5 ? countReset(newValue) : null;
 });
 
@@ -26,7 +26,7 @@ const countReset = () => {
   resetButton.style.display = 'block';
   resetButton.onclick = () => {
     localStorage.setItem('myClicks', 0);
-    alertText.innerHTML = 'You have clicked <b>' + 0 + ' times</b> to related button.';
+    alertText.innerHTML = 'You have clicked <strong>' + 0 + ' times</strong> to related button.';
     resetButton.style.display = 'none';
   };
 };
