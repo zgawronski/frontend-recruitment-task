@@ -41,12 +41,7 @@ alertPopup.addEventListener('click', (event) => {
   }
 });
 
-// window.onclick = (ev) => {
-//   if (ev.target == alertPopup) {
-//     alertPopup.close();
-//   }
-// };
-
+// close Button
 closeButton.onclick = () => {
   alertPopup.close();
 };
@@ -60,6 +55,7 @@ const tableApi = async () => {
   const data = await tableGetData.json();
   return data;
 };
+
 // creating table with data from API
 const getData = async () => {
   try {
@@ -92,11 +88,5 @@ const getData = async () => {
     progressBar.style.display = 'none';
   }
 };
-
-// const progressBarFunc = () => {
-//   let progressBar = document.createElement('progress');
-//   progressBar.setAttribute('size', '{120}');
-//   return alertPopup.appendChild(progressBar);
-// };
 
 getData();
