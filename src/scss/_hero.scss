@@ -12,8 +12,10 @@
     max-height: 20.625em;
   }
   .container {
+    text-align: center;
     @include breakpoint-up(large) {
       display: flex;
+      text-align: left;
     }
   }
 

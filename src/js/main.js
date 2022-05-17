@@ -4,6 +4,10 @@ const alertText = document.querySelector('#alertText');
 const closeButton = document.querySelector('.closeButton');
 const resetButton = document.querySelector('.resetButton');
 
+const table = document.querySelector('#textTable');
+const headders = document.querySelectorAll('#tableHeader');
+const cell = document.querySelectorAll('#tableCell');
+
 // function to open popup and count clicks
 alertButton.addEventListener('click', () => {
   if (typeof alertPopup.showModal === 'function') {
@@ -46,10 +50,20 @@ closeButton.onclick = () => {
   alertPopup.close();
 };
 
+const tableApi = async() =>{
+  const tableGetData = await fetch('https://jsonplaceholder.typicode.com/users');
+  if(!tableGetData.ok){
+    throw new Error(`HTTP error! status: ${tableGetData.status}`)
+  }
+  const data = await tableGetData.json()
+  return data
 
-const tableApi = fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json()).then(data=>data).catch((error) => {
-  console.error('Error:', error);
-})
 
-console.log(tableApi)
+};
+
+let tableData = []
+tableApi().then(data=> data.map((obj)=> tableData.push(obj)))
+//cell.innerHTML = `${tableData[0].name}`
+// tableData.map((obj)=>)
+console.log((tableData))
 
