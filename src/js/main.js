@@ -7,6 +7,7 @@ const resetButton = document.querySelector('.resetButton');
 const table = document.querySelector('#textTable');
 const headders = document.querySelectorAll('#tableHeader');
 const cell = document.querySelectorAll('#tableCell');
+const progressBar = document.querySelector('progress');
 
 // function to open popup and count clicks
 alertButton.addEventListener('click', () => {
@@ -50,51 +51,52 @@ closeButton.onclick = () => {
   alertPopup.close();
 };
 
-// let progressBar = document.createElement('progress');
-// progressBar.setAttribute('size: {120}');
-
 // getting data from API
 const tableApi = async () => {
-  try {
-    isLoading = true;
-    setTimeout;
-    const tableGetData = await fetch('https://jsonplaceholder.typicode.com/users');
-    if (!tableGetData.ok) {
-      throw new Error(`HTTP error! status: ${tableGetData.status}`);
-    }
-    const data = await tableGetData.json();
-    return data;
-  } finally {
-    isLoading = false;
+  const tableGetData = await fetch('https://jsonplaceholder.typicode.com/users');
+  if (!tableGetData.ok) {
+    throw new Error(`HTTP error! status: ${tableGetData.status}`);
   }
+  const data = await tableGetData.json();
+  return data;
 };
 // creating table with data from API
 const getData = async () => {
-  let dataTable = await tableApi();
-  let bodyTable = document.querySelector('#tBody');
-  dataTable.forEach((obj, index) => {
-    let row = document.createElement('tr');
-
-    let cellLP = document.createElement('td');
-    let cell = document.createElement('td');
-    let cell1 = document.createElement('td');
-    let cell2 = document.createElement('td');
-    let cell3 = document.createElement('td');
-    let cell4 = document.createElement('td');
-    cellLP.appendChild(document.createTextNode(index + 1));
-    cell.appendChild(document.createTextNode(obj?.name));
-    cell1.appendChild(document.createTextNode(obj?.email));
-    cell2.appendChild(document.createTextNode(obj?.address.city + ', ' + obj?.address.street + ', ' + obj?.address.suite));
-    cell3.appendChild(document.createTextNode(obj?.phone));
-    cell4.appendChild(document.createTextNode(obj?.company.name));
-    bodyTable.appendChild(row);
-    row.appendChild(cellLP);
-    row.appendChild(cell);
-    row.appendChild(cell1);
-    row.appendChild(cell2);
-    row.appendChild(cell3);
-    row.appendChild(cell4);
-  });
+  try {
+    progressBar.style.display = 'block';
+    let dataTable = await tableApi();
+    let bodyTable = document.querySelector('#tBody');
+    dataTable.forEach((obj, index) => {
+      let row = document.createElement('tr');
+      let cellLP = document.createElement('td');
+      let cell = document.createElement('td');
+      let cell1 = document.createElement('td');
+      let cell2 = document.createElement('td');
+      let cell3 = document.createElement('td');
+      let cell4 = document.createElement('td');
+      cellLP.appendChild(document.createTextNode(index + 1));
+      cell.appendChild(document.createTextNode(obj?.name));
+      cell1.appendChild(document.createTextNode(obj?.email));
+      cell2.appendChild(document.createTextNode(obj?.address.city + ', ' + obj?.address.street + ', ' + obj?.address.suite));
+      cell3.appendChild(document.createTextNode(obj?.phone));
+      cell4.appendChild(document.createTextNode(obj?.company.name));
+      bodyTable.appendChild(row);
+      row.appendChild(cellLP);
+      row.appendChild(cell);
+      row.appendChild(cell1);
+      row.appendChild(cell2);
+      row.appendChild(cell3);
+      row.appendChild(cell4);
+    });
+  } finally {
+    progressBar.style.display = 'none';
+  }
 };
+
+// const progressBarFunc = () => {
+//   let progressBar = document.createElement('progress');
+//   progressBar.setAttribute('size', '{120}');
+//   return alertPopup.appendChild(progressBar);
+// };
 
 getData();
